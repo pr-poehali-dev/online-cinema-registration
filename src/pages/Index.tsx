@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -7,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('home');
   const [selectedGenre, setSelectedGenre] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -168,7 +170,11 @@ const Index = () => {
               <Button variant="ghost" size="icon">
                 <Icon name="Bell" size={20} />
               </Button>
-              <Button size="sm" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+              <Button 
+                size="sm" 
+                className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                onClick={() => navigate('/auth')}
+              >
                 Войти
               </Button>
             </div>
